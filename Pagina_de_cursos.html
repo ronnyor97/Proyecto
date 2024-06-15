@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JOSE DANIEl BARANDICA">   
+    <title>Cursos</title>
+
+    <!--hoja de estilos externa-->
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+        /* Hojas de estilos internas */
+        .Categoria {
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .Asignatura {
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .Asignatura img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .Asignatura:hover {
+            border-style: double;
+            border: 5px solid #3fa155a2;
+        }
+        .Asignatura:hover img {
+            transform: scale(1.1);
+        }
+        figure {
+            color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            border-top-color: aquamarine;
+        }
+
+
+        /* Estilos para el Ventana de descripcion*/
+        .Ventana {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+
+        }
+        .Ventana-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+    <div class="container">
+        <div class="navbar">
+            <a href="Pagina_de_inicio.html">Inicio</a>
+            <a href="Pagina_de_recursos.html">Recursos</a>
+            <a href="Pagina_de_busqueda.html">Buscar</a>
+            <a href="Pagina_de_cursos.html">Cursos</a>
+            <a href="Pagina_de_valoracion.html">Valoración</a>
+            <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+        </div>
+    </div>
+    <div class="Categoria">
+        <div class="Asignatura" onclick="showDescription('Curso sobre Ciberseguridad: Aprende a proteger tus sistemas y redes.')">
+            <img src="assets/img/Categoria/Ciberseguridad.webp" alt="Ciberseguridad">
+            <figure>Ciberseguridad.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso sobre Desarrollo Web: Domina HTML, CSS, y JavaScript.')">
+            <img src="assets/img/Categoria/Desarrollo_Web.webp" alt="Desarrollo Web">
+            <figure>Desarrollo Web.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso sobre Programación y Software: Aprende los fundamentos y avanzados de la programación.')">
+            <img src="assets/img/Categoria/Programación_y_Software.webp" alt="Programación y Software">
+            <figure>Programación y Software.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso sobre Inteligencia Artificial: Introducción a machine learning y AI.')">
+            <img src="assets/img/Categoria/inteligencia_artificial.webp" alt="inteligencia artificial">
+            <figure>Inteligencia Artificial.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso de Inglés: Mejora tu gramática y habilidades de comunicación.')">
+            <img src="assets/img/Categoria/Inglés.webp" alt="ingles">
+            <figure>Inglés.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso de Negocio: Estrategias y habilidades para el éxito empresarial.')">
+            <img src="assets/img/Categoria/Negocio.webp" alt="Negocio">
+            <figure>Negocio.</figure>
+        </div>
+        <div class="Asignatura" onclick="showDescription('Curso de Diseño: Aprende los principios del diseño gráfico y web.')">
+            <img src="assets/img/Categoria/Diseño.webp" alt="Diseño">
+            <figure>Diseño.</figure>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-section">
+          <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+          <p>Teléfono: (123) 456-7890</p>
+          <p>
+            Correo:
+            <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+          </p>
+          <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+        </div>
+        <div class="footer-section">
+          <p>información:</p>
+          <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+          <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+        </div>
+      </footer>
+
+
+    
+    <!-- Ventana -->
+    <div id="myVentana" class="Ventana">
+        <div class="Ventana-content">
+            <span class="close">&times;</span>
+            <p id="Ventana-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function showDescription(description) {
+            var Ventana = document.getElementById("myVentana");
+            var VentanaDescription = document.getElementById("Ventana-description");
+            VentanaDescription.textContent = description;
+            Ventana.style.display = "block";
+        }
+
+        //para cerrar el Ventana
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            var Ventana = document.getElementById("myVentana");
+            Ventana.style.display = "none";
+        }
+        window.onclick = function(event) {
+            var Ventana = document.getElementById("myVentana");
+            if (event.target == Ventana) {
+                Ventana.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

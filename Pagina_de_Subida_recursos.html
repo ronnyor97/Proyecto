@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Israel Javier Canale Tapia">
+    <title>Subida de Recursos Educativos</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 28px;
+        margin-top: 20px;
+      }
+
+      form {
+        background-color: #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+      }
+
+      .input-field {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form input[type="text"],
+      form textarea,
+      form input[type="email"],
+      form select,
+      form input[type="file"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 12px;
+      }
+
+      form button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+        grid-column: span 3;
+      }
+
+      form button:hover {
+        background-color: #45a049;
+        color: #fff;
+      }
+
+      .content {
+        margin-bottom: 60px;
+      }
+
+      .form-title {
+        grid-column: span 3;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+        form button {
+          grid-column: span 1;
+        }
+      }
+
+      .input-field label,
+      form input[type="checkbox"] + label {
+        font-size: 12px;
+        margin-bottom: 8px;
+        display: inline-block;
+      }
+
+      form input[type="checkbox"] {
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      .checkbox-container {
+        margin-bottom: 12px; /* Espacio entre los checkboxes */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+    <div class="container">
+      <div class="navbar">
+        <a href="Pagina_de_inicio.html">Inicio</a>
+        <a href="Pagina_de_recursos.html">Recursos</a>
+        <a href="Pagina_de_busqueda.html">Buscar</a>
+        <a href="Pagina_de_cursos.html">Cursos</a>
+        <a href="Pagina_de_valoracion.html">Valoración</a>
+        <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+      </div>
+      <div id="contenedorprincipal" class="container">
+        <h1 class="form-title">Subida de Recursos Educativos</h1>
+        <form id="uploadForm">
+          <div class="input-field">
+            <label for="titulo">Título del recurso:</label>
+            <input
+              type="text"
+              id="titulo"
+              name="titulo"
+              placeholder="Ingrese el título"
+            >
+          </div>
+          <div class="input-field">
+            <label for="autor">Autor:</label>
+            <input
+              type="text"
+              id="autor"
+              name="autor"
+              placeholder="Ingrese el autor"
+            >
+          </div>
+          <div class="input-field">
+            <label for="email">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Ingrese su correo electrónico"
+            >
+          </div>
+          <div class="input-field">
+            <label for="descripcion">Descripción:</label>
+            <input
+              type="text"
+              id="descripcion"
+              name="descripcion"
+              placeholder="Ingrese una descripción"
+            >
+          </div>
+          <div class="input-field">
+            <label for="tipoRecurso">Tipo de Recurso:</label>
+            <select id="tipoRecurso" name="tipoRecurso">
+              <option value="">Seleccione el tipo de recurso</option>
+              <option value="video">Video</option>
+              <option value="imagen">Imagen</option>
+              <option value="documento">Documento</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <label>Etiquetas:</label>
+            <div class="checkbox-container">
+              <input
+                type="checkbox"
+                id="etiqueta-educacion"
+                name="etiqueta"
+                value="educacion"
+              >
+              <label for="etiqueta-educacion">Educación</label><br>
+              <input
+                type="checkbox"
+                id="etiqueta-tecnologia"
+                name="etiqueta"
+                value="tecnologia"
+              >
+              <label for="etiqueta-tecnologia">Tecnología</label><br>
+              <input
+                type="checkbox"
+                id="etiqueta-ciencia"
+                name="etiqueta"
+                value="ciencia"
+              >
+              <label for="etiqueta-ciencia">Ciencia</label>
+            </div>
+          </div>
+          <div class="input-field">
+            <label for="archivo">Archivo:</label>
+            <input type="file" id="archivo" name="archivo">
+          </div>
+          <button type="button" onclick="validarFormulario()">
+            Subir Recurso
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-section">
+        <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+        <p>Teléfono: (123) 456-7890</p>
+        <p>
+          Correo:
+          <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+        </p>
+        <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+      </div>
+      <div class="footer-section">
+        <p>información:</p>
+        <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+        <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+      </div>
+    </footer>
+
+    <script>
+      function validarFormulario() {
+        var titulo = document.getElementById("titulo").value;
+        var descripcion = document.getElementById("descripcion").value;
+        var autor = document.getElementById("autor").value;
+        var email = document.getElementById("email").value;
+        var tipoRecurso = document.getElementById("tipoRecurso").value;
+        var archivo = document.getElementById("archivo").value;
+        var etiquetas = document.querySelectorAll(
+          'input[name="etiqueta"]:checked'
+        );
+
+        if (titulo === "") {
+          alert("Por favor, ingrese el título del recurso.");
+          return false;
+        }
+
+        if (descripcion === "") {
+          alert("Por favor, ingrese una descripción del recurso.");
+          return false;
+        }
+
+        if (autor === "") {
+          alert("Por favor, ingrese el autor del recurso.");
+          return false;
+        }
+
+        if (email === "") {
+          alert("Por favor, ingrese su correo electrónico.");
+          return false;
+        } else {
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Por favor, ingrese un correo electrónico válido.");
+            return false;
+          }
+        }
+
+        if (tipoRecurso === "") {
+          alert("Por favor, seleccione el tipo de recurso.");
+          return false;
+        }
+
+        if (archivo === "") {
+          alert("Por favor, seleccione un archivo para subir.");
+          return false;
+        }
+
+        if (etiquetas.length === 0) {
+          alert("Por favor, seleccione al menos una etiqueta.");
+          return false;
+        }
+        document.getElementById("contenedorprincipal").innerHTML =
+          "<h1>¡Recurso subido correctamente!</h1>";
+      }
+    </script>
+  </body>
+</html>

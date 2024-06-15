@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Kenny Zamora">
+  <title>Búsqueda de Recursos Educativos</title>
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <style>
+    .concepto {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .concepto h2 {
+      color: #36f840;
+    }
+
+    .concepto p {
+      margin-bottom: 10px;
+    }
+
+    .toggle-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #36f840;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .toggle-button:hover {
+      background-color: #2ebc32;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+  </header>
+  <div class="container">
+    <div class="navbar">
+        <a href="Pagina_de_inicio.html">Inicio</a>
+        <a href="Pagina_de_recursos.html">Recursos</a>
+        <a href="Pagina_de_busqueda.html">Buscar</a>
+        <a href="Pagina_de_cursos.html">Cursos</a>
+        <a href="Pagina_de_valoracion.html">Valoración</a>
+        <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="concepto">
+      <h2>Página de Búsqueda</h2>
+      <p class="concepto-contenido">Una página de búsqueda es una interfaz web que permite a los usuarios buscar información en la web utilizando palabras clave o frases. Utiliza algoritmos de búsqueda para encontrar resultados relevantes para la consulta del usuario.</p>
+      <button class="toggle-button" onclick="toggleContent(this)">Mostrar/Ocultar</button>
+    </div>
+
+    <div class="concepto">
+      <h2>Cursos</h2>
+      <p class="concepto-contenido">Los cursos son programas de estudio que se centran en un tema específico y están diseñados para enseñar a los estudiantes sobre ese tema en particular. Algunos cursos comunes incluyen Matemáticas, Lenguaje y Programación.</p>
+      <button class="toggle-button" onclick="toggleContent(this)">Mostrar/Ocultar</button>
+    </div>
+
+    <div class="concepto">
+      <h2>Página de Valoración</h2>
+      <p class="concepto-contenido">Una página de valoración es un espacio en línea donde los usuarios pueden calificar y revisar productos, servicios, empresas o cualquier otro contenido. Estas valoraciones pueden ayudar a otros usuarios a tomar decisiones informadas.</p>
+      <button class="toggle-button" onclick="toggleContent(this)">Mostrar/Ocultar</button>
+    </div>
+
+    <div class="concepto">
+      <h2>Importancia de una Página de Registro</h2>
+      <p class="concepto-contenido">Una página de registro es importante en la web porque permite a los sitios web recopilar información sobre sus usuarios, lo que les permite ofrecer una experiencia personalizada. Además, el registro puede ser necesario para acceder a ciertas funciones o contenido exclusivo.</p>
+      <button class="toggle-button" onclick="toggleContent(this)">Mostrar/Ocultar</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-section">
+      <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+      <p>Teléfono: (123) 456-7890</p>
+      <p>
+        Correo:
+        <a href="mailto:Grupo_9_@gmail.com">Grupo_9_@gmail.com</a>
+      </p>
+      <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+    </div>
+    <div class="footer-section">
+      <p>Información:</p>
+      <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+      <p><a href="Pagina_de_Termino_y_Condiciones.html"> Término y Condiciones</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleContent(button) {
+      var content = button.previousElementSibling;
+      if (content.style.display === "none") {
+        content.style.display = "block";
+        button.textContent = "Ocultar";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Mostrar";
+      }
+    }
+
+    // Inicializa el estado de los contenidos a visibles
+    document.querySelectorAll('.concepto-contenido').forEach(function(content) {
+      content.style.display = "block";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Kenny Zamora"/>
+    <title>Valoración de Recursos Educativos</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 28px;
+        margin-top: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      form input[type="text"],
+      form textarea,
+      form input[type="number"],
+      form button {
+        width: calc(100% - 30px);
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+
+      form button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      form button:hover {
+        background-color: #45a049;
+      }
+
+      .valoracionEnviada {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        width: 100%;
+        max-width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+    <div class="container">
+      <div class="navbar">
+        <a href="Pagina_de_inicio.html">Inicio</a>
+        <a href="Pagina_de_recuros.html">Recursos</a>
+        <a href="Pagina_de_busqueda.html">Buscar</a>
+        <a href="Pagina_de_cursos.html">Cursos</a>
+        <a href="Pagina_de_valoracion.html">Valoración</a>
+        <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+      </div>
+      <div id="contenedorprincipal" class="container">
+        <h2>Formulario de Valoración</h2>
+        <form id="valoracionForm">
+          <div class="input-field">
+            <label for="tituloValoracion">Título de valoración:</label>
+            <input
+              type="text"
+              id="tituloValoracion"
+              name="tituloValoracion"
+              placeholder="Ingrese el título de la valoración"
+              required
+            >
+          </div>
+          <div class="input-field">
+            <label for="titulo">Título del recurso:</label>
+            <input
+              type="text"
+              id="titulo"
+              name="titulo"
+              placeholder="Ingrese el título del recurso"
+              required
+            >
+          </div>
+          <div class="input-field">
+            <label for="comentario">Comentario:</label>
+            <textarea
+              id="comentario"
+              name="comentario"
+              rows="4"
+              placeholder="Ingrese su comentario"
+              required
+            ></textarea>
+          </div>
+          <div class="input-field">
+            <label for="puntuacion">Puntuación (1-5):</label>
+            <input
+              type="number"
+              id="puntuacion"
+              name="puntuacion"
+              min="1"
+              max="5"
+              placeholder="Ingrese la puntuación"
+              required
+            >
+          </div>
+          <div class="input-field">
+            <label>¿Recomendarías este recurso?</label><br>
+            <input
+              type="radio"
+              id="recomendacionSi"
+              name="recomendacion"
+              value="si"
+              required
+            >
+            <label for="recomendacionSi">Sí</label>
+            <input
+              type="radio"
+              id="recomendacionNo"
+              name="recomendacion"
+              value="no"
+              required
+            >
+            <label for="recomendacionNo">No</label>
+          </div>
+          <button type="button" onclick="validarFormulario()">
+            Enviar Valoración
+          </button>
+        </form>
+        <div id="valoracionesEnviadas"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-section">
+        <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+        <p>Teléfono: (123) 456-7890</p>
+        <p>
+          Correo:
+          <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+        </p>
+        <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+      </div>
+      <div class="footer-section">
+        <p>información:</p>
+        <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+        <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+      </div>
+    </footer>
+
+    <script>
+      function validarFormulario() {
+        var tituloValoracion =
+          document.getElementById("tituloValoracion").value;
+        var tituloRecurso = document.getElementById("titulo").value;
+        var comentario = document.getElementById("comentario").value;
+        var puntuacion = document.getElementById("puntuacion").value;
+        var recomendacion = document.querySelector(
+          'input[name="recomendacion"]:checked'
+        );
+
+        if (tituloValoracion === "") {
+          alert("Por favor, ingrese el título de la valoración.");
+          return false;
+        }
+
+        if (tituloRecurso === "") {
+          alert("Por favor, ingrese el título del recurso.");
+          return false;
+        }
+
+        if (comentario === "") {
+          alert("Por favor, ingrese su comentario.");
+          return false;
+        }
+
+        if (
+          puntuacion === "" ||
+          isNaN(puntuacion) ||
+          puntuacion < 1 ||
+          puntuacion > 5
+        ) {
+          alert("La puntuación debe ser un número entre 1 y 5.");
+          return false;
+        }
+
+        if (!recomendacion) {
+          alert("Por favor, seleccione si recomendaría este recurso.");
+          return false;
+        }
+
+        // Crear elemento div para mostrar la valoración enviada
+        var valoracionEnviada = document.createElement("div");
+        valoracionEnviada.classList.add("valoracionEnviada");
+
+        // Construir HTML de la valoración
+        var htmlValoracion = "<h3>Valoración enviada</h3>";
+        htmlValoracion +=
+          "<p><strong>Título de la valoración:</strong> " +
+          tituloValoracion +
+          "</p>";
+        htmlValoracion +=
+          "<p><strong>Título del recurso:</strong> " + tituloRecurso + "</p>";
+        htmlValoracion +=
+          "<p><strong>Comentario:</strong> " + comentario + "</p>";
+        htmlValoracion +=
+          "<p><strong>Puntuación:</strong> " + puntuacion + "</p>";
+        htmlValoracion +=
+          "<p><strong>Recomendación:</strong> " +
+          (recomendacion.value === "si" ? "Sí" : "No") +
+          "</p>";
+
+        // Asignar el HTML al elemento creado
+        valoracionEnviada.innerHTML = htmlValoracion;
+
+        // Agregar la valoración enviada al contenedor de valoraciones
+        var contenedorValoraciones = document.getElementById(
+          "valoracionesEnviadas"
+        );
+        contenedorValoraciones.appendChild(valoracionEnviada);
+
+        // Limpiar el formulario después de enviar la valoración
+        document.getElementById("valoracionForm").reset();
+      }
+    </script>
+  </body>
+</html>

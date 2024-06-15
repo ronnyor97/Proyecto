@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /*background-image: url("https://img.freepik.com/foto-gratis/fondo-textura-hormigon-gris-grunge_53876-129715.jpg");*/
+    background-color: #f3f1f1;
+    background-size: cover;
+    background-position: center;
+}
+header {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    top: 0;
+    z-index: 1000;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+.navbar a:hover {
+    background-color: transparent;
+    color: #87ceeb;
+}
+.auth-links {
+    background-color: #4caf50;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+.auth-links a {
+    color: white;
+    text-decoration: none;
+}
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    flex: 1;
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.footer {
+    background-color: #4caf50;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: justify;
+}
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+.footer a {
+    color: #333;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 95%; /* Ajuste de ancho para dispositivos más pequeños */
+    }
+    .form-section {
+        width: 100%; /* Ajuste de ancho para dispositivos más pequeños */
+    }
+}
+article {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+    article {
+        width: 100%;
+    }
+}
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+    hola
+}

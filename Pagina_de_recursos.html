@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ronny David Ordoñez Arreaga">
+    <title>Recursos</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+        .gallery {
+            width: 70%;
+            max-width: 1200px; /* Ancho máximo para evitar que la galería se expanda demasiado */
+            margin: 0 auto; /* Centrar la galería */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item {
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            border-radius: 10px;
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+            border-radius: 10px 10px 0 0;
+        }
+        .gallery-item:hover {
+            border-color: #87CEEB; /* Azul celeste */
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .intro {
+            width: 90%;
+            margin: 40px auto; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con más opacidad */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el recuadro */
+            border-radius: 10px;
+            max-width: 800px; /* Ancho máximo para que los recuadros no sean muy grandes */
+            width: 100%; /* Asegura que las secciones ocupen el ancho completo */
+            text-align: center; 
+        }
+        .intro-section img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px; 
+            border-radius: 10px;
+        }
+        .intro-section div {
+            max-width: 600px;
+            width: 100%;
+        }
+        .description {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+    <div class="container">
+        <div class="navbar">
+            <a href="Pagina_de_inicio.html">Inicio</a>
+            <a href="Pagina_de_recursos.html">Recursos</a>
+            <a href="Pagina_de_busqueda.html">Buscar</a>
+            <a href="Pagina_de_cursos.html">Cursos</a>
+            <a href="Pagina_de_valoracion.html">Valoración</a>
+            <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="gallery">
+            <div class="gallery-item" id="cursos">
+                <img src="imgL/cursos.png" alt="Cursos">
+                <h2>Cursos</h2>
+            </div>
+            <div class="gallery-item" id="apuntes">
+                <img src="imgL/apuntes.png" alt="Apuntes">
+                <h2>Apuntes</h2>
+            </div>
+            <div class="gallery-item" id="tutoriales">
+                <img src="imgL/tutriales.png" alt="Tutoriales">
+                <h2>Tutoriales</h2>
+            </div>
+            <div class="gallery-item" id="ejercicios">
+                <img src="imgL/tareas.png" alt="Ejercicios">
+                <h2>Ejercicios</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="intro">
+            <div class="intro-section" id="intro-cursos">
+                <img src="imgL/youtube.jpg" alt="Cursos">
+                <div>
+                    <h2>Cursos</h2>
+                    <p>Aquí encontrarás una variedad de cursos que te ayudarán a mejorar tus habilidades y conocimientos en diferentes áreas.</p>
+                </div>
+            </div>
+            <div class="intro-section" id="intro-apuntes">
+                <img src="imgL/apuntes2.jpg" alt="Apuntes">
+                <div>
+                    <h2>Apuntes</h2>
+                    <p>Accede a apuntes completos y bien organizados para complementar tu aprendizaje y mejorar tu rendimiento académico.</p>
+                </div>
+            </div>
+            <div class="intro-section" id="intro-tutoriales">
+                <img src="imgL/tutoria2.jpg" alt="Tutoriales">
+                <div>
+                    <h2>Tutoriales</h2>
+                    <p>Explora nuestros tutoriales paso a paso que te guiarán en el aprendizaje de nuevas habilidades y técnicas.</p>
+                </div>
+            </div>
+            <div class="intro-section" id="intro-ejercicios">
+                <img src="imgL/ejercicios2.jpg" alt="Ejercicios">
+                <div>
+                    <h2>Ejercicios</h2>
+                    <p>Practica con ejercicios diseñados para reforzar tus conocimientos y prepararte para evaluaciones y proyectos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-section">
+          <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+          <p>Teléfono: (123) 456-7890</p>
+          <p>
+            Correo:
+            <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+          </p>
+          <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+        </div>
+        <div class="footer-section">
+          <p>información:</p>
+          <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+          <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+        </div>
+      </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mostrar descripción al pasar el ratón sobre los elementos de la galería
+            var galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(function(item) {
+                item.addEventListener('mouseenter', function() {
+                    var description = item.querySelector('h2').textContent;
+                    var descriptionElement = document.createElement('div');
+                    descriptionElement.classList.add('description');
+                    descriptionElement.textContent = description;
+                    item.appendChild(descriptionElement);
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    var descriptionElement = item.querySelector('.description');
+                    if (descriptionElement) {
+                        item.removeChild(descriptionElement);
+                    }
+                });
+            });
+
+            // Expandir/contraer párrafos de las secciones de introducción al hacer clic en los encabezados
+            var introSections = document.querySelectorAll('.intro-section');
+
+            introSections.forEach(function(section) {
+                var header = section.querySelector('h2');
+                var paragraphs = section.querySelectorAll('p');
+                
+                // Inicialmente, todos los párrafos estarán ocultos
+                paragraphs.forEach(function(p) {
+                    p.style.display = 'none';
+                });
+
+                header.addEventListener('click', function() {
+                    paragraphs.forEach(function(p) {
+                        if (p.style.display === 'none') {
+                            p.style.display = 'block';
+                        } else {
+                            p.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

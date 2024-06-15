@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ronny David Ordoñez Arreaga">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+    
+        label {
+            color: #000;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        label:hover,
+        label:hover ~ label {
+            color: orange;
+        }
+        input[type="radio"]:checked ~ label {
+            color: orange;
+        }
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            width: 90%; /* Ancho máximo del contenedor */
+            max-width: 600px; /* Ancho máximo del contenedor para dispositivos más grandes */
+        }
+        .form-section {
+            padding: 20px;
+            text-align: center;
+            width: 90%; /* Ancho del formulario dentro del contenedor */
+            max-width: 500px; /* Ancho máximo del formulario */
+        }
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+        }
+        .form-group input:focus {
+            border-color: #007bff;
+        }
+        .form-group .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 20px;
+        }
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+        .form-group-check {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .form-group-check label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .form-group-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .form-group-date label {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .form-group-date div {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .form-group-date input {
+            width: 32%;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+
+    <div class="container">
+        <nav class="navbar">
+            <a href="Pagina_de_inicio.html">Inicio</a>
+            <a href="Pagina_de_recursos.html">Recursos</a>
+            <a href="Pagina_de_busqueda.html">Buscar</a>
+            <a href="Pagina_de_cursos.html">Cursos</a>
+            <a href="Pagina_de_valoracion.html">Valoración</a>
+            <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+        </nav>
+
+        <div class="content">
+            <div class="login-container">
+                <div class="form-section">
+                    <h2>Iniciar Sesión</h2>
+                    <div class="social-icons">
+                        <img src="imgL/google.jpg" alt="Google">
+                        <img src="imgL/facebook.jpg" alt="Facebook">
+                    </div>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <span class="icon">&#9993;</span> 
+                            <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <span class="icon">&#128272;</span> 
+                            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="form-group-check">
+                            <input type="radio" id="docente" name="role" value="docente" required>
+                            <label for="docente">Docente</label>
+                            <input type="radio" id="estudiante" name="role" value="estudiante" required>
+                            <label for="estudiante">Estudiante</label>
+                        </div>
+                        <div class="form-group-date">
+                            <div>
+                                <input type="text" id="day" name="day" placeholder="Día" maxlength="2" required>
+                                <input type="text" id="month" name="month" placeholder="Mes" maxlength="2" required>
+                                <input type="text" id="year" name="year" placeholder="Año" maxlength="4" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-button">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-section">
+          <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+          <p>Teléfono: (123) 456-7890</p>
+          <p>
+            Correo:
+            <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+          </p>
+          <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+        </div>
+        <div class="footer-section">
+          <p>información:</p>
+          <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+          <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+        </div>
+      </footer>
+    <script>
+        document.getElementById('day').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+        document.getElementById('month').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+        document.getElementById('year').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var emailField = document.getElementById('email');
+            var email = emailField.value;
+            var dayField = document.getElementById('day');
+            var monthField = document.getElementById('month');
+            var yearField = document.getElementById('year');
+            var day = dayField.value;
+            var month = monthField.value;
+            var year = yearField.value;
+
+            if (!email.includes('@') || !email.endsWith('.com')) {
+                alert('Por favor, ingrese un correo electrónico válido que contenga "@" y termine en ".com"');
+                event.preventDefault();
+            }
+
+            if (!/^\d+$/.test(day) || day < 1 || day > 31) {
+                alert('Por favor, ingrese un día válido (1-31)');
+                event.preventDefault();
+            }
+
+            if (!/^\d+$/.test(month) || month < 1 || month > 12) {
+                alert('Por favor, ingrese un mes válido (1-12)');
+                event.preventDefault();
+            }
+
+            if (!/^\d+$/.test(year) || year.length !== 4 || year < 1900 || year > new Date().getFullYear()) {
+                alert('Por favor, ingrese un año válido (4 dígitos)');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

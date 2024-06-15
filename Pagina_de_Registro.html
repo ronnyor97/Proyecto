@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JOSE DANIEl BARANDICA">   
+    <title>Cursos</title>
+    <!--hoja de estilos externa-->
+
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style>
+        /* Hojas de estilos internas */
+       /* body { font-family: Arial, sans-serif; }
+        nav a { margin: 0 10px; text-decoration: none; color: #007BFF; }
+        .content { padding: 20px; }*/
+        form { margin-top: 20px; }
+        form div { margin-bottom: 10px; }
+        form label { display: block; }
+        form input, form select, form textarea { width: 100%; padding: 5px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Intercambio de Recursos Educativos</h1>
+    </header>
+    <div class="container">
+        <div class="navbar">
+            <a href="Pagina_de_inicio.html">Inicio</a>
+            <a href="Pagina_de_recursos.html">Recursos</a>
+            <a href="Pagina_de_busqueda.html">Buscar</a>
+            <a href="Pagina_de_cursos.html">Cursos</a>
+            <a href="Pagina_de_valoracion.html">Valoración</a>
+            <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Registro de Usuario</h1>
+        <form id="formularioRegistro">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+            <div>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+            <div>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+            <div>
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol" required>
+                    <option value="">Seleccione su rol</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="profesor">Profesor</option>
+                </select>
+            </div>
+            <div id="divInstitucion" class="hidden">
+                <label for="institucion">Institución:</label>
+                <input type="text" id="institucion" name="institucion">
+            </div>
+            <div id="divGraduado" class="hidden">
+                <label for="Graduado">Graduado en la universidad:</label>
+                <input type="text" id="Graduado" name="Graduado">
+            </div>
+            <div id="divProfesion" class="hidden">
+                <label for="Profesion">Tipo de Título:</label>
+                <select id="Profesion" name="Profesion">
+                    <option value="">Seleccione el tipo de título</option>
+                    <option value="ingeniero">Ingeniero</option>
+                    <option value="licenciado">Licenciado</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="master">Máster</option>
+                </select>
+            </div>
+            <div id="divEspecialidad" class="hidden">
+                <label for="especialidad">Especialidad del su título:</label>
+                <input type="text" id="especialidad" name="especialidad">
+            </div>
+            <div>
+                <button type="submit">Registrarse</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Función para mostrar y ocultar campos basados en el rol seleccionado
+        document.getElementById('rol').addEventListener('change', function() {
+            var rol = this.value;
+            var divInstitucion = document.getElementById('divInstitucion');
+            var divGraduado = document.getElementById('divGraduado');
+            var divProfesion = document.getElementById('divProfesion');
+            var divEspecialidad = document.getElementById('divEspecialidad');
+
+            if (rol === 'estudiante') {
+                divInstitucion.classList.remove('hidden');
+                divGraduado.classList.add('hidden');
+                divProfesion.classList.add('hidden');
+                divEspecialidad.classList.add('hidden');
+            } else if (rol === 'profesor') {
+                divInstitucion.classList.add('hidden');
+                divGraduado.classList.remove('hidden');
+                divProfesion.classList.remove('hidden');
+                divEspecialidad.classList.remove('hidden');
+            } else {
+                divInstitucion.classList.add('hidden');
+                divGraduado.classList.add('hidden');
+                divProfesion.classList.add('hidden');
+                divEspecialidad.classList.add('hidden');
+            }
+        });
+        // Función para calcular la edad
+        function calcularEdad(fechaNacimiento) {
+            var hoy = new Date();
+            var nacimiento = new Date(fechaNacimiento);
+            var edad = hoy.getFullYear() - nacimiento.getFullYear();
+            var mes = hoy.getMonth() - nacimiento.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+
+        // Validación del formulario
+        document.getElementById('formularioRegistro').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var nombre = document.getElementById('nombre').value.trim();
+            var apellido = document.getElementById('apellido').value.trim();
+            var correo = document.getElementById('correo').value.trim();
+            var contrasena = document.getElementById('contrasena').value.trim();
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var rol = document.getElementById('rol').value;
+            var institucion = document.getElementById('institucion').value.trim();
+            var Graduado = document.getElementById('Graduado').value.trim();
+            var Profesion = document.getElementById('Profesion').value;
+            var especialidad = document.getElementById('especialidad').value.trim();
+            
+            var valido = true;
+            var mensajeError = "";
+
+            if (nombre === "") {
+                valido = false;
+                mensajeError += "El nombre es obligatorio.\n";
+            }
+            if (apellido === "") {
+                valido = false;
+                mensajeError += "El apellido es obligatorio.\n";
+            }
+            if (correo === "") {
+                valido = false;
+                mensajeError += "El correo electrónico es obligatorio.\n";
+            } else if (!/^\S+@\S+\.\S+$/.test(correo)) {
+                valido = false;
+                mensajeError += "El correo electrónico no es válido.\n";
+            }
+            if (contrasena === "") {
+                valido = false;
+                mensajeError += "La contraseña es obligatoria.\n";
+            } else if (contrasena.length < 6) {
+                valido = false;
+                mensajeError += "La contraseña debe tener al menos 6 caracteres.\n";
+            }
+            if (fechaNacimiento === "") {
+                valido = false;
+                mensajeError += "La fecha de nacimiento es obligatoria.\n";
+            } else {
+                var edad = calcularEdad(fechaNacimiento);
+                if (edad > 100) {
+                    mensajeError += "Tal vez no estés vivo.\n";
+                } else if (edad < 10) {
+                    mensajeError += "Eres muy joven para estar aquí.\n";
+                }
+            }
+            if (rol === "") {
+                valido = false;
+                mensajeError += "El rol es obligatorio.\n";
+            } else if (rol === 'estudiante' && institucion === "") {
+                valido = false;
+                mensajeError += "La institución es obligatoria para estudiantes.\n";
+            } else if (rol === 'profesor' && (Graduado === "" || Profesion === "" || especialidad === "")) {
+                valido = false;
+                mensajeError += "El título universitario, el tipo de título y la especialidad son obligatorios para profesores.\n";
+            }
+
+            if (valido) {
+                alert("Registro exitoso. Se comprobarán la relación con la institución.");
+                document.getElementById('formularioRegistro').reset();
+                divInstitucion.classList.add('hidden');
+                divGraduado.classList.add('hidden');
+                divProfesion.classList.add('hidden');
+                divEspecialidad.classList.add('hidden');
+            } else {
+                alert("Errores encontrados:\n" + mensajeError);
+            }
+        });
+    </script>
+
+<footer>
+    <div class="footer-section">
+      <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+      <p>Teléfono: (123) 456-7890</p>
+      <p>
+        Correo:
+        <a href="Grupo_9_@gmailcom">Grupo_9_@gmailcom</a>
+      </p>
+      <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+    </div>
+    <div class="footer-section">
+      <p>información:</p>
+      <p><a href="Pagina_sobre_nosotros.html">Sobre Nosotros</a></p>
+      <p><a href="Pagina_de_Termino_y_Condiciones.html"> Termino y Condiciones</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

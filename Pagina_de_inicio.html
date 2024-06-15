@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Israel Javier Canale Tapia">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .auth-links {
+      background-color: #4caf50;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+    .auth-links a {
+      color: white;
+      text-decoration: none;
+    }
+    .text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      width: 80%;
+      margin: 20px auto;
+      border: 2px solid #4caf50;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .text-container:hover {
+      background-color: #4caf50;
+      color: white;
+    }
+    .text-container p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var texts = [
+        "Bienvenido a nuestra página web. Esperamos que te sea útil.",
+        "Esperemos que encuentres todo el material de estudio que buscas.",
+        "¡Buena suerte en tu aprendizaje y exploración!"
+      ];
+      
+      var textIndex = 0;
+      var textElement = document.querySelector(".text-container");
+
+      function cambiarTexto() {
+        textIndex = (textIndex + 1) % texts.length;
+        textElement.innerHTML = "<p>" + texts[textIndex] + "</p>";
+      }
+
+      textElement.addEventListener("click", cambiarTexto);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1 style="text-align: center; margin-top: 20px;">Inicio</h1>
+  </header>
+
+  <div class="container">
+    <nav class="navbar">
+      <a href="Pagina_de_Iniciar_Sesion.html">Iniciar Sesion</a>
+      <a href="Pagina_de_Registro.html">Registrar</a>
+      <a href="Pagina_de_inicio.html">Inicio</a>
+      <a href="Pagina_de_recursos.html">Recursos</a>
+      <a href="Pagina_de_busqueda.html">Buscar</a>
+      <a href="Pagina_de_cursos.html">Cursos</a>
+      <a href="Pagina_de_valoracion.html">Valoración</a>
+      <a href="Pagina_de_Subida_recursos.html">Subida de Recursos</a>
+    </nav>
+
+    <div class="text-container">
+      <p>Bienvenido a nuestra página web. Esperamos que te sea útil.</p>
+    </div>
+  </div>
+
+  <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+    <div class="footer-section">
+      <p>Equipo:</p> Grupo 9: Plataforma de intercambio de recursos educativos
+      <p>Teléfono: (123) 456-7890</p>
+      <p>
+        Correo:
+        <a href="mailto:Grupo_9_@gmail.com" style="color: white;">Grupo_9_@gmail.com</a>
+      </p>
+      <p>Dirección: Calle Falsa 123, Guayaquil, Ecuador</p>
+    </div>
+    <div class="footer-section">
+      <p>Información:</p>
+      <p><a href="Pagina_sobre_nosotros.html" style="color: white;">Sobre Nosotros</a></p>
+      <p><a href="Pagina_de_Termino_y_Condiciones.html" style="color: white;">Términos y Condiciones</a></p>
+    </div>
+  </footer>
+</body>
+</html>
